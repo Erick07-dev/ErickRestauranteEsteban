@@ -41,7 +41,7 @@ function AgregarProducto() {
       data.append("imagen", imagen);
 
       const res = await axios.post(
-        "http://https://erickrestauranteesteban-3.onrender.com/api/productos",
+        "http://localhost:4000/api/productos",
         data,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

@@ -25,7 +25,7 @@ export default function EditarProducto() {
   const probarConexion = async () => {
     try {
       console.log('🔍 Probando conexión con el backend...');
-      const response = await axios.get('http://https://erickrestauranteesteban-3.onrender.com/api/test');
+      const response = await axios.get('http://localhost:4000/api/test');
       console.log('✅ Backend respondió:', response.data);
       return true;
     } catch (error) {

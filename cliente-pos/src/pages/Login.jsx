@@ -13,7 +13,7 @@ export default function Login() {
   const login = async () => {
     try {
       // 1️⃣ LOGIN
-      const res = await axios.post("http://https://erickrestauranteesteban-3.onrender.com/api/auth/login", form);
+      const res = await axios.post("http://localhost:4000/api/auth/login", form);
 
       // 2️⃣ GUARDAR TOKEN Y ROL
       localStorage.setItem("token", res.data.token);

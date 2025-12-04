@@ -8,7 +8,7 @@ function AdminOrdenes() {
   useEffect(() => {
     const cargar = async () => {
       try {
-        const res = await axios.get("http://https://erickrestauranteesteban-3.onrender.com/api/ordenes");
+        const res = await axios.get("http://localhost:4000/api/ordenes");
         setOrdenes(res.data);
       } catch (error) {
         console.error("Error cargando órdenes:", error);
