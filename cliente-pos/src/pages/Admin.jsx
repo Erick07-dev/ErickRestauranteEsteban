@@ -49,7 +49,7 @@ function Admin() {
 
     try {
       const res = await axios.delete(
-        `http://localhost:4000/api/productos/${id}`
+        `http://https://erickrestauranteesteban-3.onrender.com/api/productos/${id}`
       );
 
       alert(`Producto eliminado: ${res.data.productoEliminado}`);

@@ -12,7 +12,7 @@ export default function Registro() {
 
   const registrar = async () => {
     try {
-      const res = await axios.post("http://localhost:4000/api/auth/registrar", form);
+      const res = await axios.post("http://https://erickrestauranteesteban-3.onrender.com/api/auth/registrar", form);
       alert(res.data.msg);
 
     } catch (err) {

@@ -30,7 +30,7 @@ function Productos() {
 
   const cargarProductos = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/productos");
+      const res = await axios.get("http://https://erickrestauranteesteban-3.onrender.com/api/productos");
       setProductos(res.data);
 
       const inicial = {};
