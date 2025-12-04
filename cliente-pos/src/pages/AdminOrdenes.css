@@ -1,0 +1,107 @@
+/* --- Contenedor principal --- */
+.admin-main {
+  padding: 30px;
+  background: #f7f7f7;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.titulo-admin {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 700;
+}
+
+.sin-ordenes {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+}
+
+/* --- Grid responsive --- */
+.grid-ordenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+/* --- Tarjeta de orden --- */
+.orden-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+  transition: transform .2s ease;
+}
+
+.orden-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Header de tarjeta --- */
+.orden-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orden-header h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.estado {
+  padding: 5px 12px;
+  background: #ffce3a;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* --- Info textual --- */
+.info {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #444;
+}
+
+/* --- Lista de productos --- */
+.lista-productos {
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.lista-productos li {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  padding: 8px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.cantidad {
+  font-weight: bold;
+  color: #222;
+}
+
+/* --- Botón --- */
+.btn-completar {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-completar:hover {
+  background: #3e8e41;
+}

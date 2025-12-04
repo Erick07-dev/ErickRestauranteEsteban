@@ -1,0 +1,112 @@
+.admin-container {
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.btn-add {
+  display: inline-block;
+  background: #1e90ff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  background: #0a6cd1;
+}
+
+.subtitle {
+  margin-top: 25px;
+}
+
+.no-products {
+  margin-top: 20px;
+  color: #777;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* ---- GRID ---- */
+.products-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ---- CARD ---- */
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+}
+
+/* ---- IMAGEN ---- */
+.product-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ---- INFO ---- */
+.product-info h3 {
+  margin: 0;
+}
+
+/* ---- ACCIONES ---- */
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-edit {
+  background: #ffa500;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-edit:hover {
+  background: #d48806;
+}
+
+.btn-delete {
+  background: #ff4d4f;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete:hover {
+  background: #c93738;
+}

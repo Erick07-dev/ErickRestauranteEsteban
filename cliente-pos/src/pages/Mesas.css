@@ -1,0 +1,72 @@
+/* Fondo general elegante */
+.mesas-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fce9d4, #fff8f3);
+  padding: 40px 20px;
+}
+
+/* Bienvenida */
+.bienvenida {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 0.8s ease;
+}
+
+.bienvenida h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #5a3828;
+}
+
+.bienvenida p {
+  font-size: 18px;
+  color: #7a553c;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenedor de mesas */
+.mesas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 30px;
+  padding: 10px;
+}
+
+/* Tarjeta de mesa con efecto glass */
+.mesa-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 45px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid #e8c8a0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.mesa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Icono */
+.mesa-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+  color: #a44c3e;
+}
+
+/* Texto */
+.mesa-card h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4d2c1c;
+}
