@@ -19,7 +19,7 @@ const login = async (req, res) => {
       { expiresIn: "2h" }
     );
 
-    // IMPORTANTE → devolver el ROL
+    //Devuelve el rol del usario
     res.json({
       msg: "Login correcto",
       token,
