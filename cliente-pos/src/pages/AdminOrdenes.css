@@ -1,107 +1,157 @@
-/* --- Contenedor principal --- */
-.admin-main {
-  padding: 30px;
-  background: #f7f7f7;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-}
-
-.titulo-admin {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 25px;
-  color: #333;
-  font-weight: 700;
-}
-
-.sin-ordenes {
-  text-align: center;
-  font-size: 18px;
-  color: #777;
-}
-
-/* --- Grid responsive --- */
-.grid-ordenes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
-}
-
-/* --- Tarjeta de orden --- */
-.orden-card {
-  background: white;
+.admin-ordenes-container {
   padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
-  transition: transform .2s ease;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.orden-card:hover {
-  transform: translateY(-5px);
-}
-
-/* --- Header de tarjeta --- */
-.orden-header {
+/* Header */
+.ordenes-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-.orden-header h2 {
-  font-size: 22px;
-  margin: 0;
-}
-
-.estado {
+.titulo-seccion h1 { margin: 0; font-size: 1.8rem; color: #2c3e50; }
+.badge-ventas {
+  background-color: #27ae60;
+  color: white;
   padding: 5px 12px;
-  background: #ffce3a;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.btn-volver {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.filtros button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #777;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+
+.filtros button.activo {
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+}
+
+/* Grid */
+.grid-ordenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta */
+.orden-card {
+  background: white;
   border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-left: 5px solid #f1c40f; /* Amarillo por defecto (Pendiente) */
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.orden-card:hover { transform: translateY(-3px); }
+
+/* Colores por estado */
+.orden-card.estado-Finalizada { border-left-color: #27ae60; opacity: 0.8; }
+.orden-card.estado-Cancelada { border-left-color: #e74c3c; opacity: 0.6; }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.estado-badge {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.estado-badge.Pendiente { background: #fff3cd; color: #856404; }
+.estado-badge.Finalizada { background: #d4edda; color: #155724; }
+.estado-badge.Cancelada { background: #f8d7da; color: #721c24; }
+
+.lista-items {
+  margin: 10px 0;
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 10px;
+  color: #2c3e50;
+}
+
+/* Botones Acción */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.btn-icon.print {
+  background: #ecf0f1;
+  color: #2c3e50;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-action {
+  flex: 1;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: white;
   font-weight: 600;
 }
 
-/* --- Info textual --- */
-.info {
-  font-size: 16px;
-  margin: 6px 0;
-  color: #444;
-}
+.btn-action.cancelar { background-color: #e74c3c; }
+.btn-action.cancelar:hover { background-color: #c0392b; }
 
-/* --- Lista de productos --- */
-.lista-productos {
-  margin-top: 10px;
-  padding-left: 0;
-  list-style: none;
-}
-
-.lista-productos li {
-  display: flex;
-  justify-content: space-between;
-  margin: 6px 0;
-  padding: 8px;
-  background: #f1f1f1;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.cantidad {
-  font-weight: bold;
-  color: #222;
-}
-
-/* --- Botón --- */
-.btn-completar {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  background: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-completar:hover {
-  background: #3e8e41;
-}
+.btn-action.finalizar { background-color: #27ae60; }
+.btn-action.finalizar:hover { background-color: #219150; }

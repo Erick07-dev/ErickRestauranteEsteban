@@ -1,112 +1,213 @@
+/* Contenedor Principal */
 .admin-container {
-  padding: 30px;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+.admin-header-main {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .admin-title {
-  text-align: center;
-  font-size: 2.3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
 }
 
-.btn-add {
-  display: inline-block;
-  background: #1e90ff;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+.admin-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
 }
 
-.btn-add:hover {
-  background: #0a6cd1;
-}
-
-.subtitle {
-  margin-top: 25px;
-}
-
-.no-products {
-  margin-top: 20px;
-  color: #777;
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-/* ---- GRID ---- */
-.products-grid {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-/* ---- CARD ---- */
-.product-card {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: 0.3s;
+/* Barra de Herramientas */
+.admin-toolbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.toolbar-left, .toolbar-right {
+  display: flex;
   gap: 10px;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
-}
-
-/* ---- IMAGEN ---- */
-.product-image {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
+.btn-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
   border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
 }
 
-/* ---- INFO ---- */
-.product-info h3 {
+.btn-add { background-color: #27ae60; color: white; }
+.btn-add:hover { background-color: #219150; }
+
+.btn-orders { background-color: #2980b9; color: white; }
+.btn-orders:hover { background-color: #2471a3; }
+
+.btn-report { background-color: #8e44ad; color: white; }
+.btn-report:hover { background-color: #732d91; }
+
+.btn-user-top { background-color: #f39c12; color: white; }
+.btn-user-top:hover { background-color: #d35400; }
+
+/* Acordeón de Categorías */
+.admin-category-group {
+  margin-bottom: 15px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.admin-cat-header {
+  width: 100%;
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #34495e;
+  transition: background 0.2s;
+}
+
+.admin-cat-header:hover {
+  background-color: #f8f9fa;
+}
+
+.admin-cat-header.active {
+  background-color: #e8f6f3; /* Color suave cuando está abierto */
+  color: #16a085;
+  border-bottom: 1px solid #d1f2eb;
+}
+
+.cat-count {
+  font-size: 0.9rem;
+  color: #95a5a6;
+  margin-left: 5px;
+  font-weight: normal;
+}
+
+/* Grilla de Productos dentro del acordeón */
+.admin-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 25px;
+  background-color: #fafafa;
+}
+
+/* Tarjeta de Producto */
+.admin-product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.card-img-wrapper {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-badge-stock {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.card-details {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.card-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.card-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #27ae60;
   margin: 0;
 }
 
-/* ---- ACCIONES ---- */
-.product-actions {
+.card-actions {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: space-around;
 }
 
-.btn-edit {
-  background: #ffa500;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn-edit:hover {
-  background: #d48806;
-}
-
-.btn-delete {
-  background: #ff4d4f;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
+.btn-icon {
+  background: none;
   border: none;
-  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 1.2rem;
+  padding: 5px;
+  border-radius: 5px;
+  transition: color 0.2s;
 }
 
-.btn-delete:hover {
-  background: #c93738;
+.btn-icon.edit { color: #3498db; }
+.btn-icon.edit:hover { background-color: #ebf5fb; }
+
+.btn-icon.delete { color: #e74c3c; }
+.btn-icon.delete:hover { background-color: #fdedec; }
+
+/* Animación de entrada */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

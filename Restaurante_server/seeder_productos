@@ -1,0 +1,76 @@
+import mysql.connector
+import random
+
+# --- CONFIGURACIÓN DE LA BASE DE DATOS ---
+# Cambia estos datos por los de tu conexión local
+db_config = {
+    'host': 'localhost',
+    'user': 'root',      # Tu usuario de MySQL
+    'password': '',      # Tu contraseña (deja vacío si no tienes en XAMPP)
+    'database': 'reportes_restaurante' # ¡PON EL NOMBRE REAL AQUÍ!
+}
+
+# --- LISTAS PARA GENERAR NOMBRES ALEATORIOS ---
+categorias = ['Bebidas', 'Entradas', 'Platos Fuertes', 'Postres', 'Desayunos']
+
+bases_comida = ['Hamburguesa', 'Pizza', 'Tacos', 'Ensalada', 'Pasta', 'Burrito', 'Sopa', 'Sandwich', 'Filete', 'Sushi', 'Ceviche', 'Pollo', 'Res', 'Pescado', 'Torta']
+adjetivos = ['Clásica', 'Especial', 'Picante', 'Doble', 'con Queso', 'Vegetariana', 'Suprema', 'de la Casa', 'al Pastor', 'BBQ', 'Ranchera', 'Hawaiana', 'Tres Quesos', 'Monster', 'Light']
+
+bases_bebida = ['Refresco', 'Cerveza', 'Jugo', 'Agua', 'Limonada', 'Malteada', 'Café', 'Té', 'Mezcal', 'Tequila', 'Vino', 'Smoothie']
+tipos_bebida = ['Grande', 'Chico', 'de Lata', 'de Barril', 'Naranja', 'Manzana', 'Mineral', 'Natural', 'Frio', 'Caliente', 'Importada', 'Nacional']
+
+# --- FUNCIÓN GENERADORA ---
+def generar_productos():
+    productos = []
+    
+    # Generamos 200 productos
+    for i in range(200):
+        categoria = random.choice(categorias)
+        
+        # Lógica para nombrar según categoría
+        if categoria == 'Bebidas':
+            nombre = f"{random.choice(bases_bebida)} {random.choice(tipos_bebida)}"
+            precio = round(random.uniform(20.00, 150.00), 2)
+        elif categoria == 'Postres':
+            nombre = f"Postre {random.choice(adjetivos)} #{i}"
+            precio = round(random.uniform(40.00, 120.00), 2)
+        else:
+            nombre = f"{random.choice(bases_comida)} {random.choice(adjetivos)}"
+            precio = round(random.uniform(80.00, 350.00), 2)
+            
+        # Añadir un identificador único al final para evitar duplicados exactos si sale el mismo random
+        nombre_final = f"{nombre} ({i+1})"
+        stock = random.randint(10, 100)
+        
+        productos.append((nombre_final, precio, categoria, stock))
+        
+    return productos
+
+# --- EJECUCIÓN PRINCIPAL ---
+try:
+    print("Conectando a MySQL...")
+    conexion = mysql.connector.connect(**db_config)
+    cursor = conexion.cursor()
+
+    # Limpiar tabla anterior (Opcional, quita el # si quieres borrar todo antes de insertar)
+    # cursor.execute("TRUNCATE TABLE productos")
+
+    print("Generando 200 productos...")
+    datos = generar_productos()
+
+    sql = "INSERT INTO productos (nombre, precio, categoria, stock) VALUES (%s, %s, %s, %s)"
+    
+    # Inserción masiva
+    cursor.executemany(sql, datos)
+    conexion.commit()
+
+    print(f"¡Éxito! Se han insertado {cursor.rowcount} productos correctamente.")
+
+except mysql.connector.Error as err:
+    print(f"Error: {err}")
+
+finally:
+    if 'conexion' in locals() and conexion.is_connected():
+        cursor.close()
+        conexion.close()
+        print("Conexión cerrada.")

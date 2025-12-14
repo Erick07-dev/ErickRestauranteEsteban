@@ -40,6 +40,7 @@ const productosRoutes = require("./routes/productos");
 const ordenesRoutes = require("./routes/ordenes");
 const authRoutes = require("./routes/auth");
 const usuariosMysqlRoutes = require("./routes/mysqlUsuarios");
+//const usuariosRoutes = require("./routes/user"); // <--- AGREGAR ESTO
 
 
 // Usar rutas
@@ -51,6 +52,8 @@ app.use("/api/mysql", mysqlReportesRoutes);
 app.use("/api/mysql", usuariosMysqlRoutes);
 // Servir archivos estáticos
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+//app.use("/api/user", usuariosRoutes); // <--- AGREGAR ESTO
 
 // PUERTO
 const PORT = process.env.PORT || 4000;

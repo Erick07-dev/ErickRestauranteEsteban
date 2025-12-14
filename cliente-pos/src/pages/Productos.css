@@ -515,3 +515,88 @@
     min-width: 200px;
   }
 }
+
+/* Estilo para el contenedor de la categoría */
+.categoria-section {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* El botón desplegable */
+.categoria-header-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.categoria-header-btn:hover {
+  background-color: #e9ecef;
+}
+
+/* Cuando está abierto, le damos un color diferente para destacar */
+.categoria-header-btn.activo {
+  background-color: #6c5ce7; /* Color principal de tu app */
+  color: white;
+}
+
+.categoria-titulo-texto {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Animación suave al abrir */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste del grid para que no choque con el borde */
+.productos-categoria {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Responsive */
+  gap: 20px;
+}
+
+/* Input manual de cantidad */
+.input-cantidad-manual {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 5px;
+  padding: 5px;
+  /* Quitar las flechas del input number en Chrome/Safari */
+  -moz-appearance: textfield;
+}
+
+.input-cantidad-manual::-webkit-outer-spin-button,
+.input-cantidad-manual::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Etiqueta pequeña de stock para referencia visual */
+.stock-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 2px;
+}
