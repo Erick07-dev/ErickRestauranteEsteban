@@ -17,7 +17,16 @@ const connectMongo = async () => {
     // No hacemos process.exit(1) aquí para no matar la app si solo falla Mongo pero MySQL funciona
     // Pero depende de cuán crítica sea Mongo para tu app.
   }
+
 };
+
+// Agrega esto temporalmente en db.js para debuggear
+console.log("--- INTENTO DE CONEXIÓN MYSQL ---");
+console.log("Host:", process.env.DB_HOST);
+console.log("User:", process.env.DB_USER);
+console.log("Port:", process.env.DB_PORT);
+console.log("Database:", process.env.DB_NAME);
+console.log("---------------------------------");
 
 // --- 2. Configuración de MySQL (Railway) ---
 const mysqlPool = mysql.createPool({
@@ -30,6 +39,14 @@ const mysqlPool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0
 });
+
+// Agrega esto temporalmente en db.js para debuggear
+console.log("--- INTENTO DE CONEXIÓN MYSQL ---");
+console.log("Host:", process.env.DB_HOST);
+console.log("User:", process.env.DB_USER);
+console.log("Port:", process.env.DB_PORT);
+console.log("Database:", process.env.DB_NAME);
+console.log("---------------------------------");
 
 // Prueba opcional de conexión a MySQL al iniciar (solo para log)
 mysqlPool.getConnection()
